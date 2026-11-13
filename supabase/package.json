@@ -1,0 +1,14 @@
+{
+  "name": "campus-os-supabase-migrations",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Supabase PostgreSQL Database Migrations and Seed Runner for CAMPUS OS",
+  "scripts": {
+    "migrate": "node migrate.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "pg": "^8.13.1"
+  }
+}
+
