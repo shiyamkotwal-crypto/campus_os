@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CAMPUS OS
 > **Your Entire Campus. One Intelligent Platform.**
 
@@ -207,3 +208,6 @@ This compiles both:
 
 Released under the **MIT License**. Engineered for modern educational institutions.
 
+=======
+# campus_os
+>>>>>>> b9cca245f946279b99bc21f3a1b832976904f299
