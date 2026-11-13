@@ -20,6 +20,14 @@ const DEMO_USERS: Record<string, { id: string; email: string; full_name: string;
     institution_id: 'a0000000-0000-0000-0000-000000000001',
     department_id: 'd0000000-0000-0000-0000-000000000001'
   },
+  'dr.turing@apex.edu': {
+    id: '10000000-0000-0000-0000-000000000002',
+    email: 'dr.turing@apex.edu',
+    full_name: 'Dr. Alan Turing',
+    role: 'faculty',
+    institution_id: 'a0000000-0000-0000-0000-000000000001',
+    department_id: 'd0000000-0000-0000-0000-000000000001'
+  },
   'alex.rivera@student.apex.edu': {
     id: '10000000-0000-0000-0000-000000000010',
     email: 'alex.rivera@student.apex.edu',
