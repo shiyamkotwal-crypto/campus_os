@@ -1,5 +1,77 @@
-# Logs
-logs
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.pnpm-store/
+.yarn/cache
+.yarn/unplugged
+
+# Environment Variables & Secrets (Keep .env.example)
+.env
+.env.*
+!.env.example
+!client/.env.example
+!server/.env.example
+*.local
+*.pem
+*.key
+*.cert
+*.crt
+serviceAccountKey*.json
+
+# Production & Build Outputs
+dist/
+dist-ssr/
+build/
+.dist/
+out/
+*.tsbuildinfo
+
+# Bundler & Framework Caches
+.vite/
+client/.vite/
+.turbo/
+.cache/
+.parcel-cache/
+
+# User Uploads & Media Storage
+uploads/
+server/uploads/
+storage/
+
+# Python (for Supabase migration scripts & tools)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Supabase Local Development & Branching
+.supabase/
+supabase/.temp/
+supabase/.branches/
+
+# Logs & Debugging
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,41 +79,37 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Node modules
-node_modules
-dist
-build
-.dist
+# Testing & Coverage
+coverage/
+.nyc_output/
+*.lcov
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-server/.env
-client/.env
-
-# Editor & OS files
+# IDE & Editor Settings
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+!.vscode/settings.json
+.idea/
+*.sublime-project
+*.sublime-workspace
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
 
-# TypeScript cache
-*.tsbuildinfo
-
-# Coverage directory used by tools like istanbul
-coverage
-.nyc_output
-
-# Temp files
-tmp
-temp
-
+# Temporary Files
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
