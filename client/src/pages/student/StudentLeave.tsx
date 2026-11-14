@@ -237,3 +237,4 @@ export const StudentLeave: React.FC = () => {
     </div>
   );
 };
+

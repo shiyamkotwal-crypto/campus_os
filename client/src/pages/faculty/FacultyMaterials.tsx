@@ -230,3 +230,4 @@ export const FacultyMaterials: React.FC = () => {
     </div>
   );
 };
+

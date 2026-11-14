@@ -150,3 +150,4 @@ export const FacultyPerformance: React.FC = () => {
     </div>
   );
 };
+

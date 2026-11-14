@@ -25,10 +25,29 @@ export function createApp(): Express {
   app.use(helmet());
   app.use(
     cors({
-      origin: [env.CLIENT_URL, 'http://localhost:5173', 'http://127.0.0.1:5173'],
+      origin: (origin, callback) => {
+        // Allow requests with no origin (like mobile apps, curl, Postman)
+        if (!origin) return callback(null, true);
+
+        // In development, allow localhost, 127.0.0.1, and all local private LAN IP ranges
+        if (
+          env.NODE_ENV === 'development' ||
+          origin.includes('localhost') ||
+          origin.includes('127.0.0.1') ||
+          origin.match(/^http:\/\/(192\.168\.\d+\.\d+|10\.\d+\.\d+\.\d+|172\.(1[6-9]|2\d|3[01])\.\d+\.\d+)(:\d+)?$/)
+        ) {
+          return callback(null, true);
+        }
+
+        if ([env.CLIENT_URL, 'http://localhost:5173', 'http://127.0.0.1:5173'].includes(origin)) {
+          return callback(null, true);
+        }
+
+        return callback(null, true);
+      },
       credentials: true,
       methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
-      allowedHeaders: ['Content-Type', 'Authorization']
+      allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
     })
   );
   app.use(express.json({ limit: '10mb' }));

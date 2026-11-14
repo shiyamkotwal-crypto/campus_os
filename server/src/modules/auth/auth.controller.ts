@@ -62,7 +62,27 @@ export async function register(req: Request, res: Response): Promise<void> {
     });
 
     if (authError) {
-      res.status(400).json({ error: 'AuthError', message: authError.message });
+      console.error('Registration authError:', JSON.stringify(authError, Object.getOwnPropertyNames(authError)));
+      const rawMsg = authError.message || (authError as any).msg || '';
+      const code = (authError as any).code || (authError as any).error_code;
+      
+      if (
+        rawMsg.toLowerCase().includes('already') ||
+        rawMsg.toLowerCase().includes('exists') ||
+        code === 'email_exists' ||
+        (authError as any).status === 422
+      ) {
+        res.status(409).json({
+          error: 'EmailAlreadyExists',
+          message: 'An account with this email address already exists. Please sign in instead.'
+        });
+        return;
+      }
+
+      const errMsg = authError.message && authError.message !== '{}' 
+        ? authError.message 
+        : (authError as any).error_description || (authError as any).msg || 'Registration rejected by authentication provider';
+      res.status(400).json({ error: 'AuthError', message: errMsg });
       return;
     }
 
@@ -85,7 +105,11 @@ export async function register(req: Request, res: Response): Promise<void> {
         account_status: 'active'
       })
       .select('*')
-      .single();
+      .maybeSingle();
+
+    if (profError) {
+      console.warn('Profile creation note:', profError.message);
+    }
 
     const token = jwt.sign(
       { sub: userId, email, role, institution_id: profile?.institution_id || 'a0000000-0000-0000-0000-000000000001' },

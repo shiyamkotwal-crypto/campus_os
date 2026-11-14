@@ -115,3 +115,4 @@ export const FacultyCalendar: React.FC = () => {
     </div>
   );
 };
+

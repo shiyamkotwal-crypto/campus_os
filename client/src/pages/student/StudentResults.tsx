@@ -173,3 +173,4 @@ export const StudentResults: React.FC = () => {
     </div>
   );
 };
+

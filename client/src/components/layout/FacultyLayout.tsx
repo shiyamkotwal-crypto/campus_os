@@ -249,3 +249,4 @@ export const FacultyLayout: React.FC = () => {
     </div>
   );
 };
+

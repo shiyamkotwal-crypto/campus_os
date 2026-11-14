@@ -301,3 +301,4 @@ export const AdminDepartments: React.FC = () => {
     </div>
   );
 };
+

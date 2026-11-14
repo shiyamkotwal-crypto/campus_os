@@ -400,3 +400,4 @@ export const AdminExaminations: React.FC = () => {
     </div>
   );
 };
+

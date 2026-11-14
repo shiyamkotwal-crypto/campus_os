@@ -113,3 +113,4 @@ export const StudentFees: React.FC = () => {
     </div>
   );
 };
+

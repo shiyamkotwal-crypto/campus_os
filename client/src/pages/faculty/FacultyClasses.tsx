@@ -177,3 +177,4 @@ export const FacultyClasses: React.FC = () => {
     </div>
   );
 };
+

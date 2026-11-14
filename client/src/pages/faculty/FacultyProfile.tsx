@@ -138,3 +138,4 @@ export const FacultyProfile: React.FC = () => {
     </div>
   );
 };
+
